@@ -1,13 +1,12 @@
 /** ------------------ IMPORTING PACKAGE ------------------ **/
 const mongoose = require("mongoose");
+require('dotenv').config();
+const mongoURI = process.env.MONGO_URI;
 
 
 /** ------------------ MAKING CONNECTION ------------------ **/
 
-// mongoose.connect('mongodb://127.0.0.1:27017/csvUploads');
-const DB = 'mongodb://127.0.0.1:27017/csv-upload';
-
-mongoose.connect(DB).then(()=>{
+mongoose.connect(mongoURI).then(()=>{
     console.log('Connection successful!');
 }).catch((err) => console.log("no connection " + err));
 
